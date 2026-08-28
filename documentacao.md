@@ -63,3 +63,5 @@
 >Exibir  a quantidade total de clientes, a quantidade de clientes ativos e o maior contrato cadastrado.
 
 >Criamos uma página de front-end com o foco de imprimir o relatorio das funções - saindo do debug console do VScode e indo para uma página visal HTML que possa ser aberta em navegadores. Decidimos usar uma estética de documento para assim trazer uma formalidade e a simplificação para pessoas que não são da area possam entender o que aconteceu e resumir as informações para compreensão geral
+
+
