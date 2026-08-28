@@ -1,1 +1,4 @@
-// front e junta tudo
+<?php
+declare(strict_types=1);
+
+?>
