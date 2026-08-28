@@ -1,7 +1,6 @@
 <?php
 declare(strict_types=1);
 
-
 $clientes = [
     [
         "nome" => "  ANA CLARA SILVA ",
@@ -17,7 +16,6 @@ $clientes = [
         "contrato" => 850.50,
         "ativo" => false
     ],
-
     [
         "nome" => "  Victor Matheus ",
         "cpf" => "865.432.109-00",
@@ -25,7 +23,6 @@ $clientes = [
         "contrato" => 100.00,
         "ativo" => false
     ],
-
     [
         "nome" => "  maria jose ",
         "cpf" => "9635.432.109-00",
@@ -35,12 +32,32 @@ $clientes = [
     ]
 ];
 
+$nomePesquisa = "  Victor Matheus ";
 
-foreach ($clientes as $clientes) {
-    echo "\nNome: " . $clientes["nome"];
-    echo "\nCPF: " . $clientes["cpf"];
-    echo "\nE-mail: " . $clientes["email"];
-    echo "\nValor do contrato: " . $clientes["contrato"];
-    echo "\nEstá ativo: " . $clientes["ativo"];
+function buscarCliente($clientes, $nomePesquisa): void {
+    foreach ($clientes as $cliente) {
+        if (strtolower($cliente["nome"]) === strtolower($nomePesquisa)) {
+            echo "\nNome: " . $cliente["nome"];
+            echo "\nCPF: " . $cliente["cpf"];
+            echo "\nE-mail: " . $cliente["email"];
+            echo "\nValor do contrato: " . $cliente["contrato"];
+            echo "\nEstá ativo: " . $cliente["ativo"];
+
+            return;
+        }
+    }
+
+    echo "Cliente não encontrado";
 }
+
+
+buscarCliente($clientes, $nomePesquisa);
+
+
+
+
+
+
+
+
 ?>
