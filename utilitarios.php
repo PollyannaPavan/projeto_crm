@@ -37,9 +37,10 @@ $clientes = [
 
 
 foreach ($clientes as $clientes) {
-    echo "Nome: " . $clientes["nome"];
-    echo "Nome: " . $clientes["nome"];
-    echo "Nome: " . $clientes["nome"];
-    echo "Nome: " . $clientes["nome"];
+    echo "\nNome: " . $clientes["nome"];
+    echo "\nCPF: " . $clientes["cpf"];
+    echo "\nE-mail: " . $clientes["email"];
+    echo "\nValor do contrato: " . $clientes["contrato"];
+    echo "\nEstá ativo: " . $clientes["ativo"];
 }
 ?>
