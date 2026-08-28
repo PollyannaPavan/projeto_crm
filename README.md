@@ -1,173 +1,65 @@
-# projeto_crm
+# SABP: Projeto: Central de Atendimento e Cadastro do CRM Senai
 
-# documento de requisitos- sistema de central de atendimento:
+> - **Integrantes**: Hannah, Pollyanna e Victor 
 
-### objetivo:
+## Introdução 
 
-- criar um sistema de utilizando a linguagem PHP para criação da pagina de cadastro da central de atendimento.
-- o sistema deverá permitir o usuario a se cadastrar, listar e pesquisar clientes, alem de realizar calculos financeiros e apresentar um relatório final com informaçoes gerais de contrato.
-
-- o prjeto deve **obrigatóriamente** utilizar as funções da linguagem de PHP, validações, arrays, estruturas condicionais, o `foreach`, passagem por referencias e organização entre o processamento e apresentação.
-
-## organização de dados do cliente:
-
-- Os dados que o cliente deverá possuir no minimo são: `nome`, `CPF`,  `E-mail`, `valor de contrato` e `situação de contrato`.
-
- 
- - ***Exemplo***:
- 
-- nome: joão Silva
-- CPF: 145.694.333-12
-- Email: silvajoao147@gmail.com
-- valor de contrato: R$ 2.500,00
-situação: ativo.
-
-**obs**: a situação pode ser: `ativo` ou `inativo`
-___
-
-## requisitos funcionais
-1- listagem do cliente
-
-- o sistema deve apresentar todos os clientes cadastrados. A listagem deverá ser feita obrigatoriamente utilizando `foreach`. para cada cliente, apresentar seus devidos dados.
-
-## busca por nome 
-
-o sistema deve conter uma barra de pesquisa para buscas de nomes de clientes.
-a busca deverá receber o nome informado pelo usuario, remover espasços desnecessários, comparar o nome pesquisado com os clientes cadastrados, exibir os dados dos cliente encontrados, informar uma mensagem caso nenhum cliente seja encontrado.
-
-#### **Exemplo**:
-
-pesquisa: Adriana Ferreira 
- - cliente: 
- 
- Nome: adriana ferreira silva 
- 
-CPF: 12345678900 
- 
-E-mail: silvaferreira@gmail.com 
- 
-Contrato: R$ 2.500,00 
- 
-Situação: Ativo
-
-caso não encontre: cliente nao encontrado.
-
-___
-
-## cadastro do cliente
-
-- o sistema deverá permitir inserir ou simular o cadastro de um novo cliente.
-
-**antes de adicionar o cliente, o sistema deverá realizar as validaçoes**:
-
-1- Não pode estar vazio;
-
-2- Deve possuir um tamanho adequado; 
-
-3- espaços desnessarios ser removidos.
-
-4- deve possuir formato valido.
-
-5-  Caracteres de formatação deverão ser removidos.
-
-6- Deve possuir a quantidade esperada de números.
-
-7- Deve ser informado.
-
-8- Deve possuir valor maior que zero.
-
-## Limpeza e padronização dos dados
-
-- o sistema deverá limpar os dados recebidos antes de armazena-los.
-
-## nome
-
-utilizar `trim()` para remover espaços desnecessários.
-
-- o nome deverá ser apresentado de forma padronizada.
-
-## CPF :
-
-Caracteres de formatação deverão ser removidos.
-
-exemplo: 123.456.789-00
-deverá ser armazenado como: 12345678900
-
-para isso será usado a função:
-
-```php
-str_replace()
-```
-
-## Formatação dos valores 
- 
- os valores dos contratos deverão ser apresentados utilizando o padrão de moeda brasileira
- Exemplo:
-
-2500
-
-Deverá aparecer como:
-
-R$ 2.500,00
-
-Deverá ser utilizada a função:
-```php
-number_format()
-```
-
-## Resumo financeiro
-
-o sistema deve apresentar um resumo financeiro dos contratos. exemplo:
-
-Contrato 1: R$ 2.000,00 — Ativo Contrato 2: R$ 3.000,00 — Ativo Contrato 3: R$ 1.500,00 — Inativo
-
-Total de contratos ativos: R$ 5.000,00.
-
-# 4. Requisitos técnicos obrigatórios
-
-## o projeto de ve contes as funções:
-
-```php
-declare(strict_types=1);
-```
-
-```php
-function calcularMedia(array $clientes): float
-```
-
-```php
-function exibirMensagem(string $mensagem): void
-```
-
-```php
-function validarEmail(string $email): bool
-```
-
-```php
-function buscarCliente(string $nome, array $clientes): ?array
-```
-
-```php
-count() 
-strlen() 
-str_replace() 
-trim() 
-number_format()
-```
-## Estruturas condicionais
-
-As validações deverão utilizar:
-
-- if,
-elseif, 
-else ,
-
-# Passagem por referência
-
-Deverá existir pelo menos uma função utilizando & para modificar diretamente o valor original de uma variável.
-
-Exemplo:
-
-function reajustarContrato(float &$valor, float $percentual):
+>Esse projeto tem como objetivo desenvolver um sistema simples em PHP para cadastrar e organizar informações de clientes. A aplicação foi criada para facilitar o controle dos dados, como nome, CPF, e-mail, valor do contrato e situação do cliente. Os dados são armazenados em um `array` e, durante o projeto, serão utilizadas funções para organizar, validar, pesquisar e apresentar essas informações de forma mais simples e organizada.
 
 
+## Objetivo do projeto
+>O objetivo principal do projeto é criar um sistema simples de cadastro e consulta de clientes utilizando PHP.
+
+## Organização do Projeto
+> - **Pollyanna:** ficou responsável pela documentação e pelos testes do projeto.
+> - **Hannah:** ficou responsável pela descrição dos requisitos e pela preparação dos casos de teste.
+> - **Victor:** ficou responsável pela criação das funções de tratamento e cálculo, além da montagem da tela HTML e da integração das funções.
+
+### 1 - Listagem de clientes 
+>  Mostrar todos os clientes usando `foreach`, com nome, CPF, e-mail, valor do contrato e situação.
+
+![alt text](image-1.png)
+>O sistema consegue fazer a verificação do nome de todos os clientes existentes em nosso banco de dados, assim, verificando apenas se aquele ususario existe ou não no sistema, mas ainda assim não mostrando suas informações.
+
+
+### 2 - Busca por nome
+>  Criar uma opção para pesquisar um cliente pelo nome e exibir seus dados. Informe quando o cliente não for encontrado.
+
+![alt text](image-2.png)
+>O sistema percorre todos os clientes cadastrados usando o `foreach` e mostra as informações de cada um. São exibidos o nome, CPF, e-mail, valor do contrato e a situação do cliente, indicando se ele está ativo ou não.
+
+### 3 - Cadastro de cliente
+>Permitir inserir ou simular o cadastro de um novo cliente, validando nome, e-mail, CPF e valor do contrato.
+
+![alt text](image-3.png)
+>O sistema permite pesquisar um cliente pelo nome. A função percorre todos os clientes cadastrados e compara o nome pesquisado com os nomes existentes. Quando encontra o cliente, mostra somente suas informações, como nome, CPF, e-mail, valor do contrato e situação. Neste teste, foi pesquisado o nome "Pedro", mas como ele não está cadastrado, o sistema informou **"Cliente não encontrado"**
+
+### 4 - Limpeza de dados
+>Remover espaços desnecessários dos nomes e caracteres de formatação dos CPFs.
+
+![alt text](image-4.png)
+>Neste teste, foi realizada uma pesquisa pelo nome **"Victor Matheus"**. O sistema percorreu os clientes cadastrados e encontrou o usuário. Depois disso, mostrou somente os dados desse cliente, como nome, CPF, e-mail, valor do contrato e sua situação no sistema. Isso mostra que a função de pesquisa está funcionando corretamente quando o cliente está cadastrado.
+
+### 5 - Formatação
+>Apresentar os nomes de forma padronizada e os valores no formato de moeda brasileira.
+
+![alt text](image-5.png)
+>Neste teste, foi realizado o cadastro de um novo cliente com o nome **"João da Silva"**. O sistema recebeu os dados informados, como nome, CPF, e-mail e valor do contrato, e realizou o cadastro do usuário. Depois disso, mostrou as informações desse cliente na tela, incluindo sua situação no sistema, indicando que ele está ativo. Isso mostra que a função de cadastro está funcionando corretamente e que os dados do novo cliente são apresentados após o cadastro.
+
+### 6 - Resumo financeiro
+>Calcular a soma dos contratos ativos e a média dos valores dos contratos usando funções específicas.
+
+![alt text](image-6.png)
+>Neste teste, o sistema analisou os contratos cadastrados e identificou quais estão ativos. Depois disso, calculou a soma dos valores dos contratos ativos, que resultou em R$ 19.000,00, e também calculou a média dos contratos, que ficou em R$ 3.990,10. Dessa forma, o sistema consegue apresentar um resumo financeiro dos contratos, mostrando o valor total dos contratos ativos e a média dos valores cadastrados.
+
+### 7 - Alteração por referência
+>Criar uma função que aplique um reajuste percentual em um contrato usando &, alterando o valor original do cliente.
+
+
+![alt text](image-7.png)
+>Neste teste, o sistema apresenta um relatório resumido dos contratos dos clientes cadastrados. Ele reúne as informações necessárias para mostrar de forma simples o valor original do contrato e o valor após o reajuste. No exemplo apresentado, o contrato que era de R$ 2.500,00 passou para R$ 2.750,00, permitindo visualizar rapidamente o resultado do reajuste aplicado aos contratos.
+
+### 8 - Relatório final
+>Exibir  a quantidade total de clientes, a quantidade de clientes ativos e o maior contrato cadastrado.
+
+>Criamos uma página de front-end com o foco de imprimir o relatorio das funções - saindo do debug console do VScode e indo para uma página visal HTML que possa ser aberta em navegadores. Decidimos usar uma estética de documento para assim trazer uma formalidade e a simplificação para pessoas que não são da area possam entender o que aconteceu e resumir as informações para compreensão geral
