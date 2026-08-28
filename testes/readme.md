@@ -24,3 +24,19 @@ agora ele busca o cliente e informa os dados apenas do cliente que desejar. ness
 ![alt text](image-3.png)
 
 agora ele encontrou um usuario via pesquisa
+
+
+![alt text](image-4.png)
+agora o sistema cria usuarios e mostra suas informações
+
+
+
+![alt text](image-5.png)
+
+agora calcula quantos contratos estão ativos e retorna seu valor total e a média entre eles
+
+
+
+![alt text](image-6.png)
+mostra um relatorio de todos os clientes de forma resumida
+
